@@ -17,20 +17,17 @@ export class UserService {
         authorization : this.token
       })
     }
-
-    console.log("User Services");
     return this.httpService.postService('user/userSignup', reqSignup, false, httpHeadersOption)
   }
 
   loginService(reqdata:any){
-
     let httpHeadersOption = {
       headers : new HttpHeaders({ 
         contentType : 'application/json',
         authorization : this.token
       })
     }
-    console.log("User login Services");
     return this.httpService.postService('user/login', reqdata, false, httpHeadersOption)
   }
+
 }

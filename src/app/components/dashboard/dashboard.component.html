@@ -1,0 +1,141 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <div class="toolbar">
+        <mat-toolbar color="primary" class="example-toolbar">
+            <div class="toolbar-left">
+                <div (click)="showside($event)">
+                    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+                </div>
+                <div class="app-Logo" routerLink="/home">
+                    <img class="logo-img" src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
+                        alt="logo">
+                    <h1 class="app-name">Fundoo</h1>
+                </div>
+            </div>
+
+            <div class="searchbar-top" [ngClass]="{'searchChange': isSelected}" (click)="searchbg()">
+                <div class="searchbar">
+                    <button mat-icon-button matTooltip="search" class="top-icons" id="searchicon">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                    <input class="searchtext" [ngClass]="{'searchChange': isSelected}" type="text" placeholder="Search">
+                </div>
+            </div>
+
+            <div class="toolbar-right">
+                <div class="right1">
+                    <button mat-icon-button matTooltip="refresh" class="top-icons"
+                        routerLink="/home"><mat-icon>refresh</mat-icon>
+                    </button>
+
+                    <button mat-icon-button matTooltip="list view" id="viewbutton" class="top-icons">
+                        <mat-icon>{{listView?'grid_view':'view_agenda'}}</mat-icon>
+                    </button>
+
+                    <button mat-icon-button matTooltip="settings" class="top-icons"><mat-icon>settings</mat-icon>
+                    </button>
+                </div>
+
+                <div class="right2">
+                    <button mat-icon-button matTooltip="apps" class="top-icons"><mat-icon>apps</mat-icon>
+                    </button>
+
+                    <button mat-icon-button matTooltip="account" class="top-icons" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"><mat-icon>account_circle</mat-icon>
+                    </button>
+                </div>
+                <mat-menu class="a-menu" #menu="matMenu" xPosition="before">
+                    <div class="menu-content">
+                        <mat-card class="menu-card">
+                            <div class="U-info">
+                                <div class="User">
+                                    <div class="logo"></div>
+                                   
+                                </div>
+                            </div>
+                            <mat-divider></mat-divider>
+                        </mat-card>
+                        <mat-card class="menu-card1">
+                            <button mat-button class="add">
+                                <mat-icon>person_add_alt_1</mat-icon>
+                                <span>add another account</span>
+                            </button>
+                        </mat-card>
+                        <button mat-button class="out" routerLink="/">
+                            <mat-icon>logout</mat-icon>
+                            <span>Sign out</span>
+                        </button>
+                        <mat-divider></mat-divider>
+                        <ul>
+                            <span>Privacy Policy</span>
+                            <li>Terms and Conditions</li>
+                        </ul>
+                    </div>
+                </mat-menu>
+            </div>
+        </mat-toolbar>
+    </div>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            <div class="side-menu">
+                <mat-nav-list>
+
+                    <button mat-flat-button color="" class="side-title" routerLink="notes">
+                        <div class="side-button">
+                            <span>
+                                <img class="side-icons" src="../../../assets/icons/lightbulb_icon.svg">
+                            </span>
+                            <h3 mat-list-item>Notes</h3>
+                        </div>
+                    </button>
+
+                    <button mat-flat-button color="" class="side-title">
+                        <div class="side-button">
+                            <span>
+                                <img class="side-icons" src="../../../assets/icons/notifications_FILL0_wght400_GRAD0_opsz48.svg">
+                            </span>
+                            <h3 mat-list-item>Reminder</h3>
+                        </div>
+                    </button>
+
+                    <!-- <div *ngFor="let label of labels"> -->
+                        <button mat-flat-button class="side-title">
+                            <div class="side-button" >
+                                <span>
+                                    <img class="side-icons" src="../../../assets/icons/edit_.svg">
+                                </span>
+                                <h3 mat-list-item>Edit lables</h3>
+                                <!-- <h3 mat-list-item>{{label.label}}</h3> -->
+                            </div>
+                        </button>
+                    <!-- </div> -->
+
+                    <button mat-flat-button color="" class="side-title" routerLink="archive">
+                        <div class="side-button">
+                            <span>
+                                <img class="side-icons" src="../../../assets/icons/archive_icon.svg">
+                            </span>
+                            <h3 mat-list-item>Archive</h3>
+                        </div>
+                    </button>
+
+                    <button mat-flat-button color="" class="side-title" routerLink="trash">
+                        <div class="side-button">
+                            <span>
+                                <img class="side-icons" src="../../../assets/icons/delete_icon.svg">
+                            </span>
+                            <h3 mat-list-item>Trash</h3>
+                        </div>
+                    </button>
+                </mat-nav-list>
+            </div>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            
+            <div class="child-route">
+                <!-- <router-outlet></router-outlet> -->
+            </div>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

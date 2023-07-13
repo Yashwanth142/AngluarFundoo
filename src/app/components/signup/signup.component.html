@@ -38,13 +38,13 @@
           <div class="password">
             <mat-form-field class="mat-outline" appearance="outline">
               <mat-label>Password</mat-label>
-              <input matInput formControlName="password" [type]="showPassword ? 'text' : 'password'" placeholder="password">
+              <input matInput type="password" formControlName="password" [type]="showPassword ? 'text' : 'password'" placeholder="password">
               <mat-error>password is required</mat-error>
             </mat-form-field>
   
             <mat-form-field class="mat-outline" appearance="outline">
               <mat-label>Confirm</mat-label>
-              <input matInput formControlName="confirmpassword" [type]="showPassword ? 'text' : 'password'" placeholder="Confirm">
+              <input matInput type="password" formControlName="confirmpassword" [type]="showPassword ? 'text' : 'password'" placeholder="Confirm">
               <mat-error>password is required</mat-error>
             </mat-form-field>
           </div>

@@ -15,18 +15,29 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,ReactiveFormsModule,FormsModule,MatFormFieldModule,MatButtonModule,MatCardModule,
-    MatInputModule,MatIconModule,MatCheckboxModule,HttpClientModule,MatSnackBarModule
+    MatInputModule,MatIconModule,MatCheckboxModule,HttpClientModule,MatSnackBarModule,MatSidenavModule,
+    MatListModule,MatMenuModule,MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

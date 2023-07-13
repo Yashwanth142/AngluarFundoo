@@ -30,14 +30,13 @@ export class LoginComponent {
       }
 
       this.userService.loginService(reqdata).subscribe((result: any) => {
-        console.log("Login function working", result);
+        console.log("Login Successful:", result);
         this.snackBar.open('Login Successfully!', '', { 
           duration: 2000 
         });
         localStorage.setItem('token', result.id);
         localStorage.setItem('userId',result.userId)
-        console.log("id=",result.id);
-        
+        this.route.navigateByUrl('/home')
       })
     }
     else {

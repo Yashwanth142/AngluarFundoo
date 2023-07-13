@@ -42,7 +42,7 @@ export class SignupComponent {
           password: this.signupform.value.password,
         }
         this.userService.signupService(reqSignup).subscribe((result: any) => {
-          console.log("signup function working", reqSignup);
+          console.log("signup data:", reqSignup);
           this.snackBar.open('Account created Successfully!', '', { 
             duration: 2000 });
             this.route.navigateByUrl('/login');
@@ -51,8 +51,7 @@ export class SignupComponent {
       else {
         console.log("invalid data");
         this.snackBar.open('SignUp failed!', '', {
-          duration: 1000
-        });
+          duration: 1000});
       }
     }
     else {
