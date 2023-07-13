@@ -1,0 +1,91 @@
+.main {
+    width: auto;
+    height: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo-title {
+    margin-top: 5%;
+    font-size: 32px;
+}
+
+.title1{
+    color: blue;
+}
+
+.title2{
+    color:red ;
+}
+
+.title3{
+    color:yellow ;
+}
+
+.title4{
+    color: green;
+}
+
+.form-title {
+    margin-top: 4%;
+    margin-bottom: 2%;
+    font-size: 28px;
+}
+
+.form-heading{
+    margin-bottom: 4%;
+    font-size: large;
+    color: #393333;
+}
+
+.email, .password {
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.btn {
+    width: -webkit-fill-available;
+    margin-top: 10%;
+    display: flex;
+    gap: 130px;
+}
+
+@media only screen and (max-width: 500px) {
+    .main{
+        height: auto;
+    }
+    form{
+        border:none;
+    } 
+    .btn{
+        gap:80px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .btn{
+        gap:50px;
+    }
+}
