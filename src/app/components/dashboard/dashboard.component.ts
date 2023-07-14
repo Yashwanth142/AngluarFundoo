@@ -27,7 +27,7 @@ export class DashboardComponent {
   ngOnInit(): void {
   }
   searchbg(){
-    this.isSelected=true; 
+    this.isSelected=!this.isSelected; 
   }
   showside(e: any) {
     this.show = !this.show;
