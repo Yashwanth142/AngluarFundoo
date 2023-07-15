@@ -1,0 +1,38 @@
+<div class="MainContainer">
+
+    <div class="NoteTaker">
+      <div class="SecndView" *ngIf="!firstView" >
+  
+        <form [formGroup]="NotesinData">
+          <input type="text" placeholder="Title" class="SecondViewText" formControlName="title" >
+        </form>
+        <img src="../../../assets/push_pin.svg" alt="Pin" class="PinIcon">
+  
+      </div>
+  
+      <div class="FirstView" *ngIf="firstView || !firstView">
+  
+        <form [formGroup]="NotesinData" class="FormWidthControll">
+          <input type="text" placeholder="Take a note..." class="FirstViewText"  (click)="SecondView()" formControlName="description">
+        </form>
+  
+        <div class="OnlyInFirstview" *ngIf="firstView">
+          <img src="../../../assets/check_box.svg" alt="New List" class="FirstViewIcons">
+          <img src="../../../assets/brush.svg" alt="Drawing" class="FirstViewIcons">
+          <img src="../../../assets/image.svg" alt="Image" class="FirstViewIcons">
+        </div>
+  
+      </div>
+  
+      <div class="BottomIcons" *ngIf="!firstView">
+        <div class="IconsSpaceWidth">
+          <app-noteicon></app-noteicon>
+        </div>
+        
+        <div class="CloseButtonArea">
+          <button mat-flat-button style="background-color: transparent;" (click)="Close()">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
