@@ -29,14 +29,19 @@
     padding: 6%;
 }
 
-
+.BGColorPallet{
+    padding: auto;
+}
 .ColorCirclesContainer
 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 160px;
+    max-width: 160px;
     height: 110px;    
+}
+::ng-deep .mat-mdc-menu-panel.mat-mdc-menu-panel{
+width: 190px;
 }
 
 .ColorCircle

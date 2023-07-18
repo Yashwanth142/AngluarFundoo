@@ -28,4 +28,7 @@ export class GetallnotesComponent {
   receivedMsg(event:any){
     this.getNotes()
   }
+  refresh(){
+    this.getNotes()
+  }
 }

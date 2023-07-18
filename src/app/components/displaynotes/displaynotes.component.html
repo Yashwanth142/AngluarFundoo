@@ -1,7 +1,7 @@
 <div class="MainDisplayNotesContainer">
     
-    <div *ngFor="let notes of childData">
-        <div class="NotesContainer">
+    <div *ngFor="let notes of childData" >
+        <div class="NotesContainer" [style.background-color]="notes.color">
             
             <div class="TitleInput">
                 {{notes.title}}
@@ -12,7 +12,7 @@
             </div>
 
             <div class="BottomIconsContainer">
-                <app-noteicon></app-noteicon>
+                <app-noteicon [noteinfo]="notes" (refresh)="refresh($event)"></app-noteicon>
             </div>
         </div>
     </div>

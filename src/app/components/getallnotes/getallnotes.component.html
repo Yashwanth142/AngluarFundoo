@@ -1,2 +1,2 @@
 <app-createnote (message)="receivedMsg($event)"></app-createnote>
-<app-displaynotes [childData]="notesData" ></app-displaynotes>
+<app-displaynotes [childData]="notesData" (refreshdata)="refresh()"></app-displaynotes>

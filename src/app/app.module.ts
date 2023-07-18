@@ -26,6 +26,8 @@ import { CreatenoteComponent } from './components/createnote/createnote.componen
 import { NoteiconComponent } from './components/noteicon/noteicon.component';
 import { GetallnotesComponent } from './components/getallnotes/getallnotes.component';
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { DisplaynotesComponent } from './components/displaynotes/displaynotes.co
     CreatenoteComponent,
     NoteiconComponent,
     GetallnotesComponent,
-    DisplaynotesComponent
+    DisplaynotesComponent,
+    ArchiveComponent,
+    TrashComponent
   ],
   imports: [
     BrowserModule,

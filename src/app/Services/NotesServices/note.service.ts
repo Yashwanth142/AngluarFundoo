@@ -18,6 +18,7 @@ token:any
     }
     return this.httpService.postService('notes/addNotes', reqdata, true, httpHeadersOption)
   }
+  
   getallNotes(){
     this.token=localStorage.getItem('token');
     let httpHeadersOption = {
@@ -26,6 +27,65 @@ token:any
         authorization : this.token
       })
     }
+
     return this.httpService.getService('notes/getNotesList', true, httpHeadersOption)
   }
+
+  archive(reqdata:any){
+    this.token=localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers : new HttpHeaders({ 
+        contentType : 'application/json',
+        authorization : this.token
+      })
+    }
+    return this.httpService.postService('notes/archiveNotes',reqdata, true, httpHeadersOption)
+  }
+
+  trash(reqdata:any){
+    this.token=localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers : new HttpHeaders({ 
+        contentType : 'application/json',
+        authorization : this.token
+      })
+    }
+    return this.httpService.postService('notes/trashNotes',reqdata, true, httpHeadersOption)
+  }
+
+  getArchivenotes() {
+    this.token = localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers: new HttpHeaders({
+        contentType: 'application/json',
+        authorization: this.token,
+      })
+    }
+    return this.httpService.getService('notes/getArchiveNotesList', true, httpHeadersOption)
+  }
+
+  getTrashnotes() {
+    this.token = localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers: new HttpHeaders({
+        contentType: 'application/json',
+        authorization: this.token,
+      })
+    }
+    return this.httpService.getService('notes/getTrashNotesList', true, httpHeadersOption)
+  }
+
+  ColorChange(reqdata:any){
+    this.token=localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers : new HttpHeaders({ 
+        contentType : 'application/json',
+        authorization : this.token
+      })
+    }
+    return this.httpService.postService('notes/changesColorNotes',reqdata, true, httpHeadersOption)
+  }
+
 }
+
+

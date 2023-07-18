@@ -1,20 +1,28 @@
 <div class="BottomIcons">
 
-    <div class="LeftIcons">
-          <img src="../../../assets/notifications_.svg" alt="Remind me" class="DownIcons">
-          <img src="../../../assets/person_add.svg" alt="Collaborator" class="DownIcons">
-          <img src="../../../assets/palette.svg" alt="Background options" class="DownIcons" >
-          <img src="../../../assets/image.svg" alt="Add image" class="DownIcons">
-          <img src="../../../assets/archive_.svg" alt="Archive" class="DownIcons" >
-          <img src="../../../assets/more_vert.svg" alt="More" class="DownIcons" [matMenuTriggerFor]="menu">
-    </div>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>Delete note</button>
-        <button mat-menu-item>Add Label</button>
-        <button mat-menu-item>Add drawing</button>
-        <button mat-menu-item>Make a copy</button>
-        <button mat-menu-item>Show checkboxes</button>
-  </mat-menu>
-
-    
-</div>
+      <div class="LeftIcons">
+            <img src="../../../assets/notifications_.svg" alt="Remind me" class="DownIcons">
+            <img src="../../../assets/person_add.svg" alt="Collaborator" class="DownIcons">
+            <img src="../../../assets/palette.svg" alt="Background options" class="DownIcons"  [matMenuTriggerFor]="colorMenu">
+            <img src="../../../assets/image.svg" alt="Add image" class="DownIcons">
+            <img src="../../../assets/archive_.svg" alt="Archive" class="DownIcons" (click)="archive()">
+            <img src="../../../assets/more_vert.svg" alt="More" class="DownIcons" [matMenuTriggerFor]="menu">
+      </div>
+      <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="trash()">Delete note</button>
+          <button mat-menu-item>Add Label</button>
+          <button mat-menu-item>Add drawing</button>
+          <button mat-menu-item>Make a copy</button>
+          <button mat-menu-item>Show checkboxes</button>
+    </mat-menu>
+  
+      <mat-menu #colorMenu="matMenu" class="BGColorPallet">
+  
+          <div class="ColorCirclesContainer">
+                <div class="Displayer" *ngFor="let color of colorData">
+                      <div class="ColorCircle" [style.background-color]="color.code" (click)="ColorCode(color.code)"></div>
+                </div>
+          </div>
+    </mat-menu>
+      
+  </div>

@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,EventEmitter,Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-displaynotes',
@@ -7,7 +7,11 @@ import { Component,Input } from '@angular/core';
 })
 export class DisplaynotesComponent {
   @Input() childData:any;
+ @Output() refreshdata = new EventEmitter();
     constructor() { }
     ngOnInit(): void {  
     } 
+    refresh(event:any){
+      this.refreshdata.emit();
+    }
 }
