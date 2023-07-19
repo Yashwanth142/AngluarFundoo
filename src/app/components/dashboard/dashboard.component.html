@@ -17,7 +17,7 @@
                     <button mat-icon-button matTooltip="search" class="top-icons" id="searchicon">
                         <mat-icon>search</mat-icon>
                     </button>
-                    <input class="searchtext" [ngClass]="{'searchChange': isSelected}" type="text" placeholder="Search">
+                    <input class="searchtext" [ngClass]="{'searchChange': isSelected}" type="text" placeholder="Search" (keyup)="searchnote($event)">
                 </div>
             </div>
 

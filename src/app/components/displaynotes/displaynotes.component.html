@@ -1,6 +1,6 @@
 <div class="MainDisplayNotesContainer">
     
-    <div *ngFor="let notes of childData" >
+    <div *ngFor="let notes of childData | search:searchText" >
         <div class="NotesContainer" [style.background-color]="notes.color">
             
             <div class="TitleInput" (click)="openDialog(notes)">
@@ -12,7 +12,7 @@
             </div>
 
             <div class="BottomIconsContainer">
-                <app-noteicon [noteinfo]="notes" [trashview]="trash" (refresh)="refresh($event)"></app-noteicon>
+                <app-noteicon [noteinfo]="notes" [trashview]="trash" (refresh)="refresh($event)" (refreshtrash)="trashrefresh($event)"></app-noteicon>
             </div>
         </div>
     </div>

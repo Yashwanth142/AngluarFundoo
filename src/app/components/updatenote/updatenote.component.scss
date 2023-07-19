@@ -4,18 +4,16 @@ input,textarea{
     font-family: "Roboto",arial,sans-serif;
     border: none;
     outline: none;
-    width: fit-content;
-    height: fit-content;
 }
+
 .note{
-    min-height: 100px;
     width: 100%;
 }
+
 
 .icons{
     display: flex;
     justify-content: space-between;
-
 }
 .icon{
     width: 70%;

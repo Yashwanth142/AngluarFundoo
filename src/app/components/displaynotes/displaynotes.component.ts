@@ -1,6 +1,7 @@
 import { Component,EventEmitter,Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {UpdatenoteComponent} from '../updatenote/updatenote.component';
+import { DatashareService } from 'src/app/Services/datashare/datashare.service';
 @Component({
   selector: 'app-displaynotes',
   templateUrl: './displaynotes.component.html',
@@ -10,13 +11,17 @@ export class DisplaynotesComponent {
   @Input() childData:any;
   @Input() trash:any;
   @Output() refreshdata = new EventEmitter();
-    
- constructor(public dialog: MatDialog ) { }
+  @Output() refreshdatatrash = new EventEmitter();
+ constructor(public dialog: MatDialog,private dataService:DatashareService) { }
+ searchText:any
     ngOnInit(): void {  
-     
+    this.displaySearch()
     } 
     refresh(event:any){
       this.refreshdata.emit();
+    }
+    trashrefresh(event:any){
+      this.refreshdatatrash.emit();
     }
     openDialog(note: any) {
       const dialogRef = this.dialog.open(UpdatenoteComponent, { data: note, });
@@ -25,4 +30,10 @@ export class DisplaynotesComponent {
          this.refreshdata.emit();
       });
     }
+    displaySearch(){
+      this.dataService.currentMessage.subscribe((result) => {
+        this.searchText = result
+      });
+    }
+
 }

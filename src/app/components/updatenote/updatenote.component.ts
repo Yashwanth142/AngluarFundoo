@@ -16,7 +16,6 @@ export class UpdatenoteComponent {
     this.description = data.description;
     this.color=data.color;
   }
-
   refresh(bgcolor: any) {
     this.color= bgcolor;
   }

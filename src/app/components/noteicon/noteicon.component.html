@@ -9,8 +9,8 @@
             <img src="../../../assets/more_vert.svg" alt="More" class="DownIcons" [matMenuTriggerFor]="menu">
       </div>
       <div *ngIf="trashview">
-            <img src="../../../assets/icons/restore_from_trash_FILL0_wght400_GRAD0_opsz48.svg" alt="untrash" class="DownIcons">
-            <img src="../../../assets/icons/delete_forever_FILL0_wght400_GRAD0_opsz48.svg" alt="Deleteforever" class="DownIcons">
+            <img src="../../../assets/icons/restore_from_trash_FILL0_wght400_GRAD0_opsz48.svg" alt="untrash" class="DownIcons" (click)="restore()">
+            <img src="../../../assets/icons/delete_forever_FILL0_wght400_GRAD0_opsz48.svg" alt="Deleteforever" class="DownIcons" (click)="DeleteForever()">
       </div>
       <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="trash()">Delete note</button>

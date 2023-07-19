@@ -47,11 +47,13 @@
 .BottomIconsContainer
 {
     margin: 10px 0px;
+    visibility: collapse;
 }
 
   
 .NotesContainer:hover .BottomIconsContainer
 {
+    visibility: visible;
     opacity: 1;
 }
 app-commission-me-dialog {

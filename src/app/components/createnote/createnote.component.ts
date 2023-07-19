@@ -35,13 +35,14 @@ export class CreatenoteComponent {
       color:this.color
     };
     console.log(notesData);
-  if(notesData.title != "" && notesData.description != "")
+    if(notesData.title != "" && notesData.description != "")
     {
       this.noteServices.CreateNotes(notesData).subscribe(
         (response:any) => {
           console.log(response)
           this._snackBar.open("Notes created", "ok", { duration: 3000 });
           this.firstView = true;
+          this.color=''
           this.NotesinData.reset();
           this.message.emit();
         },

@@ -20,4 +20,7 @@ gettrash(){
        this.tarshData=res.data.data
   })
 }
+refresh(){
+  this.gettrash()
+}
 }
