@@ -1,12 +1,16 @@
 <div class="BottomIcons">
 
-      <div class="LeftIcons">
+      <div class="LeftIcons" *ngIf="!trashview">
             <img src="../../../assets/notifications_.svg" alt="Remind me" class="DownIcons">
             <img src="../../../assets/person_add.svg" alt="Collaborator" class="DownIcons">
             <img src="../../../assets/palette.svg" alt="Background options" class="DownIcons"  [matMenuTriggerFor]="colorMenu">
             <img src="../../../assets/image.svg" alt="Add image" class="DownIcons">
             <img src="../../../assets/archive_.svg" alt="Archive" class="DownIcons" (click)="archive()">
             <img src="../../../assets/more_vert.svg" alt="More" class="DownIcons" [matMenuTriggerFor]="menu">
+      </div>
+      <div *ngIf="trashview">
+            <img src="../../../assets/icons/restore_from_trash_FILL0_wght400_GRAD0_opsz48.svg" alt="untrash" class="DownIcons">
+            <img src="../../../assets/icons/delete_forever_FILL0_wght400_GRAD0_opsz48.svg" alt="Deleteforever" class="DownIcons">
       </div>
       <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="trash()">Delete note</button>

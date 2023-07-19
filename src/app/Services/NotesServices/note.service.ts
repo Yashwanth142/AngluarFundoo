@@ -86,6 +86,17 @@ token:any
     return this.httpService.postService('notes/changesColorNotes',reqdata, true, httpHeadersOption)
   }
 
+  updatenotes(reqdata:any){
+    this.token=localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers : new HttpHeaders({ 
+        contentType : 'application/json',
+        authorization : this.token
+      })
+    }
+    return this.httpService.postService('notes/updateNotes',reqdata, true, httpHeadersOption)
+  }
+
 }
 
 

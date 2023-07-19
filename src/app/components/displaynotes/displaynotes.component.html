@@ -3,16 +3,16 @@
     <div *ngFor="let notes of childData" >
         <div class="NotesContainer" [style.background-color]="notes.color">
             
-            <div class="TitleInput">
+            <div class="TitleInput" (click)="openDialog(notes)">
                 {{notes.title}}
             </div>
 
-            <div class="DescriptionInput">
+            <div class="DescriptionInput" (click)="openDialog(notes)">
                 {{notes.description}}
             </div>
 
             <div class="BottomIconsContainer">
-                <app-noteicon [noteinfo]="notes" (refresh)="refresh($event)"></app-noteicon>
+                <app-noteicon [noteinfo]="notes" [trashview]="trash" (refresh)="refresh($event)"></app-noteicon>
             </div>
         </div>
     </div>

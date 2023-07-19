@@ -1,0 +1,31 @@
+input,textarea{
+    width: 100%;
+    font-size: 18px;
+    font-family: "Roboto",arial,sans-serif;
+    border: none;
+    outline: none;
+    width: fit-content;
+    height: fit-content;
+}
+.note{
+    min-height: 100px;
+    width: 100%;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+
+}
+.icon{
+    width: 70%;
+}
+::ng-deep .mdc-dialog__container{
+ min-width: 400px !important;
+}
+
+@media only screen and (max-width: 600px){
+    .icons{
+        gap: 40px;
+    }
+}

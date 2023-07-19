@@ -11,6 +11,7 @@ import { NoteService } from 'src/app/Services/NotesServices/note.service';
 export class CreatenoteComponent {
   firstView : boolean=true;
   NotesinData!:FormGroup;
+  color : any
   @Output() message =new EventEmitter();
   constructor(private formBuilder: FormBuilder, private _snackBar: MatSnackBar,private noteServices:NoteService) { }
 
@@ -24,10 +25,14 @@ export class CreatenoteComponent {
   {
     this.firstView = false;
   }
+  refresh(color: string){
+    this.color=color;
+  }
   Close(){
     let notesData={
       title:this.NotesinData.value.title,
       description:this.NotesinData.value.description,
+      color:this.color
     };
     console.log(notesData);
   if(notesData.title != "" && notesData.description != "")
@@ -45,6 +50,7 @@ export class CreatenoteComponent {
         });
     }else{
       this.firstView=true
+      this.color=''
     }
   }
 }

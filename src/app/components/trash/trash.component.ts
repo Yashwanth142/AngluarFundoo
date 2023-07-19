@@ -8,6 +8,7 @@ import { NoteService } from 'src/app/Services/NotesServices/note.service';
 })
 export class TrashComponent {
 tarshData:any
+trash:boolean=true
 constructor(private note:NoteService){}
 ngOnInit() {
   this.gettrash()

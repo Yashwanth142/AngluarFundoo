@@ -1,6 +1,6 @@
 <div class="MainContainer">
 
-    <div class="NoteTaker">
+    <div class="NoteTaker" [style.background-color]="color">
       <div class="SecndView" *ngIf="!firstView" >
   
         <form [formGroup]="NotesinData">
@@ -26,7 +26,7 @@
   
       <div class="BottomIcons" *ngIf="!firstView">
         <div class="IconsSpaceWidth">
-          <app-noteicon></app-noteicon>
+          <app-noteicon (refresh)="refresh($event)"></app-noteicon>
         </div>
         
         <div class="CloseButtonArea">

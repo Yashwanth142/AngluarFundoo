@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent},
   { path:'home',component: DashboardComponent,
   children:[
-  { path: '', pathMatch: 'full', redirectTo: 'notes'},
+   {path: '', pathMatch: 'full', redirectTo: 'notes'},
    {path:'notes', component: GetallnotesComponent},
    {path:'trash', component: TrashComponent},
    {path:'archive', component: ArchiveComponent}

@@ -28,6 +28,8 @@ import { GetallnotesComponent } from './components/getallnotes/getallnotes.compo
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
+import { UpdatenoteComponent } from './components/updatenote/updatenote.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -42,14 +44,15 @@ import { TrashComponent } from './components/trash/trash.component';
     GetallnotesComponent,
     DisplaynotesComponent,
     ArchiveComponent,
-    TrashComponent
+    TrashComponent,
+    UpdatenoteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,ReactiveFormsModule,FormsModule,MatFormFieldModule,MatButtonModule,MatCardModule,
     MatInputModule,MatIconModule,MatCheckboxModule,HttpClientModule,MatSnackBarModule,MatSidenavModule,
-    MatListModule,MatMenuModule,MatToolbarModule
+    MatListModule,MatMenuModule,MatToolbarModule,MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

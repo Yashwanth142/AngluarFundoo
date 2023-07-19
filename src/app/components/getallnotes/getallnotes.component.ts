@@ -16,7 +16,7 @@ export class GetallnotesComponent {
   getNotes(){
     this.note.getallNotes().subscribe(
       (res:any) => {
-        console.log(res.data.data);
+        //console.log(res.data.data);
          this.notesData=res.data.data
         this.notesData=this.notesData.reverse()
         this.notesData=this.notesData.filter(function(data:any){

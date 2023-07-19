@@ -8,8 +8,12 @@ import { NoteService } from 'src/app/Services/NotesServices/note.service';
 })
 export class NoteiconComponent {
   @Input() noteinfo:any
+  @Input() trashview:any
   @Output() refresh = new EventEmitter();
 constructor(private note:NoteService){}
+ngOnInit() {
+
+}
 colorData:any = [
   {code:'#F38B83'},
   {code: '#FBBC05'},
@@ -48,17 +52,19 @@ trash(){
 
   ColorCode(colorInfo:any)
   {
-    this.refresh.emit();
-    console.log(this.noteinfo.id)
+    this.refresh.emit(colorInfo);
     
+    if(this.noteinfo !=null){
+    console.log(this.noteinfo.id)
     let data = {
       noteIdList:[this.noteinfo.id],
       color : colorInfo
     }   
-    console.log(data)
+    console.log(data,"colorInfo")
     this.note.ColorChange(data).subscribe((success:any) => {
       console.log("Success", success);  
     })
+   }
   }
 
 }

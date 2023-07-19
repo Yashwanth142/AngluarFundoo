@@ -1,0 +1,13 @@
+<div >
+    <mat-card [style.background-color]="color" >
+        <mat-card-content>
+            <input class="title" type="text" [(ngModel)]="title" placeholder="title" [style.background-color]="color">
+        </mat-card-content>
+        <mat-card-content>
+            <textarea class="note" type="text" [(ngModel)]="description" placeholder="note" [style.background-color]="color"></textarea>        </mat-card-content>
+        <mat-card-actions class="icons">
+            <app-noteicon [noteinfo]="data" (refresh)="refresh($event)" class="icon"></app-noteicon>
+            <button mat-button matTooltip="Close and Save" (click)="close()"  [style.background-color]="color">Close</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
