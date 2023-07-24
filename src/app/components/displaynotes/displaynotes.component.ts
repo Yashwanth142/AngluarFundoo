@@ -12,8 +12,9 @@ export class DisplaynotesComponent {
   @Input() trash:any;
   @Output() refreshdata = new EventEmitter();
   @Output() refreshdatatrash = new EventEmitter();
+  searchText:any
  constructor(public dialog: MatDialog,private dataService:DatashareService) { }
- searchText:any
+
     ngOnInit(): void {  
     this.displaySearch()
     } 

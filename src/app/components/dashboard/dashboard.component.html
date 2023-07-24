@@ -47,8 +47,11 @@
                         <mat-card class="menu-card">
                             <div class="U-info">
                                 <div class="User">
-                                    <div class="logo"></div>
-                                   
+                                    <img src={{imageUrl}} style="border-radius: 50%; width: 32px; height: 32px;"  (click)="openprofile()">
+                                    
+                                    <div class="info">
+                                        <span>yashwanth</span>
+                                    </div>
                                 </div>
                             </div>
                             <mat-divider></mat-divider>
@@ -59,7 +62,7 @@
                                 <span>add another account</span>
                             </button>
                         </mat-card>
-                        <button mat-button class="out" routerLink="/">
+                        <button mat-button class="out" routerLink="/" (click)="logout()">
                             <mat-icon>logout</mat-icon>
                             <span>Sign out</span>
                         </button>
@@ -97,7 +100,7 @@
                         </div>
                     </button>
 
-                    <!-- <div *ngFor="let label of labels"> -->
+                  
                         <button mat-flat-button class="side-title">
                             <div class="side-button" >
                                 <span>
@@ -106,7 +109,7 @@
                                 <h3 mat-list-item>Edit lables</h3>
                             </div>
                         </button>
-                    <!-- </div> -->
+                  
 
                     <button mat-flat-button color="" class="side-title" routerLink="archive">
                         <div class="side-button">

@@ -31,6 +31,7 @@ import { TrashComponent } from './components/trash/trash.component';
 import { UpdatenoteComponent } from './components/updatenote/updatenote.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SearchPipe } from './pipe/search.pipe';
+import { AddProfileComponent } from './components/add-profile/add-profile.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { SearchPipe } from './pipe/search.pipe';
     ArchiveComponent,
     TrashComponent,
     UpdatenoteComponent,
-    SearchPipe
+    SearchPipe,
+    AddProfileComponent
   ],
   imports: [
     BrowserModule,
