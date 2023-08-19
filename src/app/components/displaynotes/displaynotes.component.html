@@ -1,8 +1,8 @@
 <div class="MainDisplayNotesContainer">
-    
-    <div *ngFor="let notes of childData | search:searchText" >
+
+    <div *ngFor="let notes of childData | search:searchText">
         <div class="NotesContainer" [style.background-color]="notes.color">
-            
+
             <div class="TitleInput" (click)="openDialog(notes)">
                 {{notes.title}}
             </div>
@@ -10,11 +10,19 @@
             <div class="DescriptionInput" (click)="openDialog(notes)">
                 {{notes.description}}
             </div>
+            <mat-chip-option class="chips" *ngFor="let label of notes.noteLabels" (mouseenter)="label.showIcon = true"
+                (mouseleave)="label.showIcon = false" style="background-color: rgba(0,0,0,.08);"
+                (removed)="remove(label.id,notes.id)">
+                {{label.label}}
+                <button matChipRemove [attr.aria-label]="'remove ' + label.id" *ngIf="label.showIcon">
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip-option>
 
             <div class="BottomIconsContainer">
-                <app-noteicon [noteinfo]="notes" [trashview]="trash" (refresh)="refresh($event)" (refreshtrash)="trashrefresh($event)"></app-noteicon>
+                <app-noteicon [noteinfo]="notes" [trashview]="trash" (refresh)="refresh($event)"
+                    (refreshtrash)="trashrefresh($event)"></app-noteicon>
             </div>
         </div>
     </div>
-
 </div>

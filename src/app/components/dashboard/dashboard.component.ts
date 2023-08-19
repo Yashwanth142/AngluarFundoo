@@ -5,6 +5,8 @@ import { UserService } from 'src/app/Services/UserService/user.service';
 import { DatashareService } from 'src/app/Services/datashare/datashare.service';
 import { AddProfileComponent } from '../add-profile/add-profile.component';
 import { MatDialog } from '@angular/material/dialog';
+import { NoteService } from 'src/app/Services/NotesServices/note.service';
+import { EditLabelComponent } from '../edit-label/edit-label.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,13 +25,16 @@ export class DashboardComponent {
 
   private _mobileQueryListener: () => void;
 
-  constructor(public dialog: MatDialog,changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private dataService:DatashareService,private route: Router,private userService:UserService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private dataService: DatashareService, private userService:UserService,
+    private route: Router,
+    public dialog: MatDialog,private noteService:NoteService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit() {
+   this.getAllLabels()
    this.getImage()
   }
   searchbg(){
@@ -55,6 +60,49 @@ export class DashboardComponent {
   }
   getImage(){
     this.imageUrl=this.baseImageUrl+localStorage.getItem('imageUrl')
-    console.log("image",this.imageUrl);
+    //console.log("image",this.imageUrl);
+  }
+
+  getAllLabels(){
+    this.noteService.getNoteLabels().subscribe((res:any)=>{
+      this.labels=res.data.details;
+      console.log("labels",res);
+      //console.log(this.labels);
+      this.dataService.sendLabelsData(this.labels)
+    })
+  }
+
+  redirectToLabel(label:any){
+    console.log(label);
+    this.noteService.getNotesListbyLabel(label).subscribe((res:any)=>{
+      //console.log(res);
+      //console.log(res.data.data);
+      this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.route.navigate(['home/Label/'+label]);
+      });
+      //console.log("refresh");
+    })
+    
+  }
+
+  openDialog(){
+    const dialogRef = this.dialog.open(EditLabelComponent, {data:this.labels});
+
+    dialogRef.componentInstance.onDelete.subscribe((res:any)=>{
+     // console.log("all Labels");
+        this.getAllLabels()
+        this.labels=res;
+      });
+      dialogRef.componentInstance.onCreate.subscribe((res:any)=>{
+       // console.log("all Labels");
+          this.getAllLabels()
+        });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.getAllLabels()
+    });
+  }
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 }

@@ -9,6 +9,7 @@ import { GetallnotesComponent } from './components/getallnotes/getallnotes.compo
 import { TrashComponent } from './components/trash/trash.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { AuthenticationGuard } from './authentication.guard';
+import { DisplayLablesComponent } from './components/display-lables/display-lables.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -21,7 +22,9 @@ const routes: Routes = [
    {path: '', pathMatch: 'full', redirectTo: 'notes'},
    {path:'notes', component: GetallnotesComponent},
    {path:'trash', component: TrashComponent},
-   {path:'archive', component: ArchiveComponent}
+   {path:'archive', component: ArchiveComponent},
+   {path:'Label', component:DisplayLablesComponent},
+   {path:'Label/:labelName', component:DisplayLablesComponent}
   ]
   }
 ];

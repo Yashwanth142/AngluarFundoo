@@ -32,6 +32,9 @@ import { UpdatenoteComponent } from './components/updatenote/updatenote.componen
 import { MatDialogModule } from '@angular/material/dialog';
 import { SearchPipe } from './pipe/search.pipe';
 import { AddProfileComponent } from './components/add-profile/add-profile.component';
+import { EditLabelComponent } from './components/edit-label/edit-label.component';
+import { DisplayLablesComponent } from './components/display-lables/display-lables.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -50,14 +53,17 @@ import { AddProfileComponent } from './components/add-profile/add-profile.compon
     TrashComponent,
     UpdatenoteComponent,
     SearchPipe,
-    AddProfileComponent
+    AddProfileComponent,
+    EditLabelComponent,
+    DisplayLablesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,ReactiveFormsModule,FormsModule,MatFormFieldModule,MatButtonModule,MatCardModule,
     MatInputModule,MatIconModule,MatCheckboxModule,HttpClientModule,MatSnackBarModule,MatSidenavModule,
-    MatListModule,MatMenuModule,MatToolbarModule,MatDialogModule
+    MatListModule,MatMenuModule,MatToolbarModule,MatDialogModule,MatChipsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

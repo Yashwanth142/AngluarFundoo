@@ -35,6 +35,7 @@ export class LoginComponent {
           duration: 2000 
         });
         localStorage.setItem('token', result.id);
+        localStorage.setItem('userId',result.userId)
         this.route.navigateByUrl('/home')
       })
     }

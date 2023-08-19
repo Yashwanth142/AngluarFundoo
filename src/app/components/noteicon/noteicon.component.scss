@@ -60,6 +60,23 @@ width: 190px;
 .TrashIconos{
     height: 20px;  
 }
+.label-Radio{
+    // display: block !important;
+     margin: 8px;
+     width: 175px;
+     display: flex;
+     flex-direction: column;
+     color: #3c4043;
+ }
+ .search-input{
+    width: 84%;
+    font-size: 16px;
+    font-family: "Roboto",arial,sans-serif;
+    border: none;
+    outline: none;
+    margin-top:10px ;
+    margin-bottom: 20px;
+}
 @media only screen and (min-width:320px) and (max-width:480px)
 {
 .LeftIcons

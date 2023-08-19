@@ -15,6 +15,12 @@ export class DatashareService {
   private Url = new BehaviorSubject('');
   currentUrl = this.Url.asObservable();
 
+  private labelData = new BehaviorSubject("");
+  currentLabelMessage = this.labelData.asObservable();
+
+  private viewOption = new BehaviorSubject("");
+  currentView = this.viewOption.asObservable();
+
   changeMessage(message: any) {
     this.messageSource.next(message);
   }
@@ -25,5 +31,13 @@ export class DatashareService {
 
   sendUrl(message: any){
     this.Url.next(message);
+  }
+
+  ChangeView(message: any){
+    this.viewOption.next(message);
+  }
+
+  sendLabelsData(message: any){
+    this.labelData.next(message);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NoteService } from 'src/app/Services/NotesServices/note.service';
+import { DatashareService } from 'src/app/Services/datashare/datashare.service';
 
 @Component({
   selector: 'app-noteicon',
@@ -9,10 +10,17 @@ import { NoteService } from 'src/app/Services/NotesServices/note.service';
 export class NoteiconComponent {
   @Input() noteinfo: any;
   @Input() trashview: any;
+  @Input() newNote: boolean = false;
   @Output() refresh = new EventEmitter();
   @Output() refreshtrash = new EventEmitter();
-  constructor(private note: NoteService) {}
-  ngOnInit() {}
+
+  labelArray: any = []
+  checkedLabels: any = [];
+  labelTitle: boolean = true;
+  constructor(private note: NoteService,private dataService:DatashareService) {}
+  ngOnInit() {
+    this.getLabelData()
+  }
   colorData: any = [
     { code: '#F38B83' },
     { code: '#FBBC05' },
@@ -86,4 +94,33 @@ export class NoteiconComponent {
       this.refreshtrash.emit();
     });
   }
+  getLabelData() {
+    if (!this.newNote) {
+      this.dataService.currentLabelMessage.subscribe((res) => {
+        this.labelArray = res;
+      })
+    }
+  }
+  onMenuClosed() {
+    this.refresh.emit();
+  }
+  
+  selectLabel(event: any, label: any) {
+    if (event.target.checked) {
+      let reqdata = {
+        noteId: [this.noteinfo.id],
+        lableId: label
+      }
+      // console.log(reqdata.noteId);
+      // console.log(label);
+      this.note.addLabeltoNotes(reqdata.noteId, label).subscribe((result) => {
+        console.log("label added", result);
+
+      })
+    }
+  }
+  searchLabel(event: any) {
+    console.log(event.target.value);
+  }
+
 }

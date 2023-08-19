@@ -14,11 +14,23 @@
       </div>
       <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="trash()">Delete note</button>
-          <button mat-menu-item>Add Label</button>
+          <button mat-menu-item [matMenuTriggerFor]="label" #menuTrigger="matMenuTrigger" (menuClosed)="onMenuClosed()"
+            (click)="$event.stopPropagation()" *ngIf="!newNote"> {{labelTitle?'Add label':'change label'}}</button>
           <button mat-menu-item>Add drawing</button>
           <button mat-menu-item>Make a copy</button>
           <button mat-menu-item>Show checkboxes</button>
+          
     </mat-menu>
+
+    <mat-menu class="label-menu" #label="matMenu" (click)="$event.stopPropagation()">
+      <div class="label-Radio" (click)="$event.stopPropagation()">Label note
+          <input class="search-input" placeholder="Enter the Label" type="search" (keyup)="searchLabel($event)">
+          <div *ngFor="let labels of labelArray">
+              <mat-checkbox class="check-btn" (click)="selectLabel($event,labels.id)"
+                  [checked]="checkedLabels.includes(labels.id)">{{labels.label}}</mat-checkbox>
+          </div>
+      </div>
+  </mat-menu>
   
       <mat-menu #colorMenu="matMenu" class="BGColorPallet">
   

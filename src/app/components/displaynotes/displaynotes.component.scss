@@ -66,6 +66,13 @@ app-commission-me-dialog {
     border-radius: 20px !important;
 }
 
+.chips{
+    margin: 2px;
+    margin-top: 12px;
+    margin-left: 8px;
+    background-color: rgba(0,0,0,.08);
+}
+
 @media only screen and (min-width:768px) and (max-width:1024px)
 {
     .NotesContainer{

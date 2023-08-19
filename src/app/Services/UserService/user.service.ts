@@ -41,7 +41,6 @@ export class UserService {
   }
   setToken(){
     this.token=localStorage.setItem('token',"")
-    
   }
   uploadProfilePic(reqdata:any){
     this.token=localStorage.getItem('token')

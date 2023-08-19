@@ -2,6 +2,7 @@ import { Component,EventEmitter,Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {UpdatenoteComponent} from '../updatenote/updatenote.component';
 import { DatashareService } from 'src/app/Services/datashare/datashare.service';
+import { NoteService } from 'src/app/Services/NotesServices/note.service';
 @Component({
   selector: 'app-displaynotes',
   templateUrl: './displaynotes.component.html',
@@ -13,7 +14,10 @@ export class DisplaynotesComponent {
   @Output() refreshdata = new EventEmitter();
   @Output() refreshdatatrash = new EventEmitter();
   searchText:any
- constructor(public dialog: MatDialog,private dataService:DatashareService) { }
+  view: boolean = true;
+  constructor(public dialog: MatDialog,private dataService:DatashareService,private noteservice:NoteService) { }
+    @Output() updatenoteEvent = new EventEmitter<Object>();
+    @Input() displayallnotes: any;
 
     ngOnInit(): void {  
     this.displaySearch()
@@ -35,6 +39,21 @@ export class DisplaynotesComponent {
       this.dataService.currentMessage.subscribe((result) => {
         this.searchText = result
       });
+    }
+
+    changeDisplayView() {
+      this.dataService.currentView.subscribe((res: any) => {
+        console.log(res);
+        this.view = res;
+      })
+    }
+  
+    remove(labelId: any, noteId: any) {
+      this.noteservice.removeLabelToNotes(noteId, labelId).subscribe((res: any) => {
+        console.log(res);
+        this.refreshdata.emit();
+        this.updatenoteEvent.emit();
+      })
     }
 
 }
