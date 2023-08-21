@@ -35,7 +35,8 @@ import { AddProfileComponent } from './components/add-profile/add-profile.compon
 import { EditLabelComponent } from './components/edit-label/edit-label.component';
 import { DisplayLablesComponent } from './components/display-lables/display-lables.component';
 import { MatChipsModule } from '@angular/material/chips';
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { MatChipsModule } from '@angular/material/chips';
     AppRoutingModule,
     BrowserAnimationsModule,ReactiveFormsModule,FormsModule,MatFormFieldModule,MatButtonModule,MatCardModule,
     MatInputModule,MatIconModule,MatCheckboxModule,HttpClientModule,MatSnackBarModule,MatSidenavModule,
-    MatListModule,MatMenuModule,MatToolbarModule,MatDialogModule,MatChipsModule,
+    MatListModule,MatMenuModule,MatToolbarModule,MatDialogModule,MatChipsModule,MatSelectModule,
+    MatDatepickerModule,
     
   ],
   providers: [],

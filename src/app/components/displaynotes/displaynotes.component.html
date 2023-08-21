@@ -18,6 +18,16 @@
                     <mat-icon>cancel</mat-icon>
                 </button>
             </mat-chip-option>
+            <!-- <mat-chip-option class="chips" *ngFor="let remind of notes.reminder"
+            (mouseenter)="notes.showIcon = true" (mouseleave)="notes.showIcon = false"
+            style="background-color: rgba(0,0,0,.08);"
+            (removed)="removeReminder(notes.id,notes.reminder)">{{((notes.reminder).toString()).replace(excludedData,
+            '')|date:'dd MMM, hh:mm a'}}
+            {{((note.reminder).toString())|date:'short'}} 
+            <button matChipRemove [attr.aria-label]="'remove ' + notes.id" *ngIf="notes.showIcon">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </mat-chip-option> -->
 
             <div class="BottomIconsContainer">
                 <app-noteicon [noteinfo]="notes" [trashview]="trash" (refresh)="refresh($event)"

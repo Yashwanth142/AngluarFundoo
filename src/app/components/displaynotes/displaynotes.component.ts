@@ -14,7 +14,9 @@ export class DisplaynotesComponent {
   @Output() refreshdata = new EventEmitter();
   @Output() refreshdatatrash = new EventEmitter();
   searchText:any
+  data3:any=[]
   view: boolean = true;
+  excludedData = 'GMT+0000 (UTC)';
   constructor(public dialog: MatDialog,private dataService:DatashareService,private noteservice:NoteService) { }
     @Output() updatenoteEvent = new EventEmitter<Object>();
     @Input() displayallnotes: any;
@@ -55,5 +57,15 @@ export class DisplaynotesComponent {
         this.updatenoteEvent.emit();
       })
     }
-
+    removeReminder(Id: any, reminder: any) {
+      let reqdata = {
+        noteIdList: [Id],
+        //reminder:reminder
+      }
+      this.noteservice.removeReminder(reqdata).subscribe((res: any) => {
+        console.log(res, "removed");
+        this.updatenoteEvent.emit();
+        this.refreshdata.emit()
+      })
+    }
 }
