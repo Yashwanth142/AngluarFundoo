@@ -35,7 +35,7 @@ export class NoteiconComponent {
     this.getLabelData()
     // this.checkedLabels = this.noteinfo.noteLabels
     this.daysUntilNextMonday = (1 + 7 - this.date.getDay()) % 7;
-    console.log("mon", this.daysUntilNextMonday);
+    //console.log("mon", this.daysUntilNextMonday);
     if (this.daysUntilNextMonday === 0) {
       this.daysUntilNextMonday = 7;
     }
@@ -86,12 +86,12 @@ export class NoteiconComponent {
     this.refresh.emit(colorInfo);
 
     if (this.noteinfo != null) {
-      console.log(this.noteinfo.id);
+    //  console.log(this.noteinfo.id);
       let data = {
         noteIdList: [this.noteinfo.id],
         color: colorInfo,
       };
-      console.log(data, 'colorInfo');
+     // console.log(data, 'colorInfo');
       this.note.ColorChange(data).subscribe((success: any) => {
         console.log('Success', success);
       });

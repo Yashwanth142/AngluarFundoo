@@ -66,7 +66,7 @@ export class DashboardComponent {
   getAllLabels(){
     this.noteService.getNoteLabels().subscribe((res:any)=>{
       this.labels=res.data.details;
-      console.log("labels",res);
+    //  console.log("labels",res);
       //console.log(this.labels);
       this.dataService.sendLabelsData(this.labels)
     })

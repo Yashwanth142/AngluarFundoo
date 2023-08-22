@@ -54,18 +54,18 @@ export class DisplaynotesComponent {
       this.noteservice.removeLabelToNotes(noteId, labelId).subscribe((res: any) => {
         console.log(res);
         this.refreshdata.emit();
-        this.updatenoteEvent.emit();
+        this.updatenoteEvent.emit(); 
       })
     }
     removeReminder(Id: any, reminder: any) {
       let reqdata = {
         noteIdList: [Id],
-        //reminder:reminder
+       //reminder:reminder
       }
       this.noteservice.removeReminder(reqdata).subscribe((res: any) => {
         console.log(res, "removed");
         this.updatenoteEvent.emit();
-        this.refreshdata.emit()
+        this.refreshdata.emit();
       })
     }
 }

@@ -194,6 +194,60 @@ token:any
     }
     return this.httpService.postService('notes/getNotesListByLabel/' + labelName + '?access_token=' + this.token, '', true, httpHeadersOption)
   }
+  AddReminder(reqdata: any) {
+    this.token = localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers: new HttpHeaders({
+        contentType: 'application/json',
+        authorization: this.token,
+      }) 
+    }
+    return this.httpService.postService('notes/addUpdateReminderNotes', reqdata, true, httpHeadersOption)
+  }
+
+  getReminderNotes() {
+    this.token = localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers: new HttpHeaders({
+        contentType: 'application/json',
+        authorization: this.token,
+      }) 
+    }
+    return this.httpService.getService('notes/getReminderNotesList', true, httpHeadersOption)
+  }
+
+  removeReminder(reqdata: any) {
+    this.token = localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers: new HttpHeaders({
+        contentType: 'application/json',
+        authorization: this.token,
+      }) 
+    }
+    return this.httpService.postService('notes/removeReminderNotes', reqdata, true, httpHeadersOption)
+  }
+
+  addCollabrator(reqdata: any, id: any) {
+    this.token = localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers: new HttpHeaders({
+        contentType: 'application/json',
+        authorization: this.token,
+      })
+    }
+    return this.httpService.postService('notes/' + id + '/AddcollaboratorsNotes', reqdata, true, httpHeadersOption)
+  }
+
+  removeCollabrator(notesId: any, collabId: any) {
+    this.token = localStorage.getItem('token');
+    let httpHeadersOption = {
+      headers: new HttpHeaders({
+        contentType: 'application/json',
+        authorization: this.token,
+      })
+    }
+    return this.httpService.deleteService('notes/' + notesId + '/removeCollaboratorsNotes/' + collabId, true, httpHeadersOption)
+  }
 }
 
 
