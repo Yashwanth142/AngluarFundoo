@@ -2,8 +2,8 @@
 
       <div class="LeftIcons" *ngIf="!trashview">
             <img src="../../../assets/notifications_.svg" alt="Remind me" class="DownIcons"
-                  [matMenuTriggerFor]="reminder">
-            <img src="../../../assets/person_add.svg" alt="Collaborator" class="DownIcons">
+                  [matMenuTriggerFor]="reminder" >
+            <img src="../../../assets/person_add.svg" alt="Collaborator" class="DownIcons" (click)="openDialog()">
             <img src="../../../assets/palette.svg" alt="Background options" class="DownIcons"
                   [matMenuTriggerFor]="colorMenu">
             <img src="../../../assets/image.svg" alt="Add image" class="DownIcons">
@@ -64,13 +64,13 @@
       </mat-menu>
       <mat-menu class="date-menu" #dateTime="matMenu" (click)="$event.stopPropagation()" [hasBackdrop]="false"
             [overlapTrigger]="false">
-            <!-- <div mat-menu-item>
-                <mat-form-field>
-                    <input matInput [matDatepicker]="picker3" [value]="date" [(ngModel)]="selectDate">
-                    <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
-                    <mat-datepicker #picker3></mat-datepicker>
-                </mat-form-field>
-            </div> -->
+            <div mat-menu-item>
+                  <mat-form-field class="options" >
+                        <input matInput [matDatepicker]="picker" [value]="date" [(ngModel)]="selectDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker ></mat-datepicker>
+                  </mat-form-field>
+            </div> 
             <div class="selectLabel" (click)="$event.stopPropagation()">
                   <mat-form-field class="options">
                         <input matInput *ngIf="showOptions" type="time" [(ngModel)]="remindTime">
@@ -147,8 +147,8 @@
       <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="trash()">Delete note</button>
             <button mat-menu-item [matMenuTriggerFor]="label" #menuTrigger="matMenuTrigger"
-                  (menuClosed)="onMenuClosed()" (click)="$event.stopPropagation()" *ngIf="!newNote"> {{labelTitle?'Add
-                  label':'change label'}}</button>
+                  (menuClosed)="onMenuClosed()" (click)="$event.stopPropagation()" *ngIf="!newNote"> {{labelTitle?'Add label':'change label'}}
+            </button>
             <button mat-menu-item>Add drawing</button>
             <button mat-menu-item>Make a copy</button>
             <button mat-menu-item>Show checkboxes</button>

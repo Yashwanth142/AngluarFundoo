@@ -52,4 +52,16 @@ export class UserService {
     }
     return this.httpService.postService('user/uploadProfileImage?access_token='+this.token, reqdata, true, httpHeadersOption)
   }
+  searchUserList(reqdata:any){
+
+    this.token=localStorage.getItem('token')
+    let httpHeadersOption = {
+      headers : new HttpHeaders({ 
+        contentType : 'application/json',
+        authorization : this.token
+      })
+    }
+    return this.httpService.postService('user/searchUserList', reqdata, true, httpHeadersOption)
+  }
+
 }

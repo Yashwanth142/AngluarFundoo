@@ -28,6 +28,12 @@
                 <mat-icon>cancel</mat-icon>
             </button>
         </mat-chip-option>
+        <div class="collab-div">
+            <div *ngFor="let collab of notes.collaborators; let i = index">
+                <div class="logo" matTooltip="{{collab.email}}"
+                    [ngClass]="'element-bg-' + (i % 10 + 1)">{{(collab.firstName).charAt(0)}} </div>
+            </div>
+        </div>
 
             <div class="BottomIconsContainer">
                 <app-noteicon [noteinfo]="notes" [trashview]="trash" (refresh)="refresh($event)"

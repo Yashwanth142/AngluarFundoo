@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NoteService } from 'src/app/Services/NotesServices/note.service';
 import { DatashareService } from 'src/app/Services/datashare/datashare.service';
+import { CollabratorComponent } from '../collabrator/collabrator.component';
+import { MatDialog } from '@angular/material/dialog';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-noteicon',
@@ -14,7 +17,7 @@ export class NoteiconComponent {
   @Output() refresh = new EventEmitter();
   @Output() refreshtrash = new EventEmitter();
 
-  //date = new FormControl(new Date());
+  // date = new FormControl(new Date());
   date = new Date();
   selectDate = new Date();
   remindDate = new Date();
@@ -30,7 +33,7 @@ export class NoteiconComponent {
 
   showOptions: boolean = false;
 
-  constructor(private note: NoteService, private dataService: DatashareService) { }
+  constructor(private note: NoteService, private dataService: DatashareService,public dialog: MatDialog) { }
   ngOnInit() {
     this.getLabelData()
     // this.checkedLabels = this.noteinfo.noteLabels
@@ -43,6 +46,7 @@ export class NoteiconComponent {
     if (this.date >= this.remindDate) {
       this.isRemind = false;
     }
+
   }
   colorData: any = [
     { code: '#F38B83' },
@@ -182,6 +186,7 @@ export class NoteiconComponent {
       this.refresh.emit();
     })
   }
+
   AddNoteReminder() {
 
     console.log(this.selectDate);
@@ -212,6 +217,7 @@ export class NoteiconComponent {
       this.refresh.emit();
     })
   }
+
   AddNoteReminderNextWeek() {
     const currentDate = new Date();
     const nextWeek = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 7);
@@ -232,4 +238,11 @@ export class NoteiconComponent {
     })
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(CollabratorComponent, { data: this.noteinfo });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.refresh.emit();
+    });
+  }
+ 
 }

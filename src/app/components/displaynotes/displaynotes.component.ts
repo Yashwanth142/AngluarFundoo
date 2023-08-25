@@ -13,13 +13,16 @@ export class DisplaynotesComponent {
   @Input() trash:any;
   @Output() refreshdata = new EventEmitter();
   @Output() refreshdatatrash = new EventEmitter();
+  @Output() updatenoteEvent = new EventEmitter<Object>();
+  @Input() displayallnotes: any;
+  
   searchText:any
   data3:any=[]
   view: boolean = true;
   excludedData = 'GMT+0000 (UTC)';
+
   constructor(public dialog: MatDialog,private dataService:DatashareService,private noteservice:NoteService) { }
-    @Output() updatenoteEvent = new EventEmitter<Object>();
-    @Input() displayallnotes: any;
+   
 
     ngOnInit(): void {  
     this.displaySearch()
